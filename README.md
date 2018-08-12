@@ -1,5 +1,5 @@
-[![view on npm](http://img.shields.io/npm/v/live-server.svg)](https://www.npmjs.org/package/http-live-server)
-[![npm module downloads per month](http://img.shields.io/npm/dm/live-server.svg)](https://www.npmjs.org/package/http-live-server)
+[![view on npm](http://img.shields.io/npm/v/http-live-server.svg)](https://www.npmjs.org/package/http-live-server)
+[![npm module downloads per month](http://img.shields.io/npm/dm/http-live-server.svg)](https://www.npmjs.org/package/http-live-server)
 
 Fork from Live Server
 
