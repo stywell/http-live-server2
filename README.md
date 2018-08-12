@@ -1,6 +1,5 @@
-[![view on npm](http://img.shields.io/npm/v/live-server.svg)](https://www.npmjs.org/package/live-server)
-[![npm module downloads per month](http://img.shields.io/npm/dm/live-server.svg)](https://www.npmjs.org/package/live-server)
-[![build status](https://travis-ci.org/tapio/live-server.svg)](https://travis-ci.org/tapio/live-server)
+[![view on npm](http://img.shields.io/npm/v/live-server.svg)](https://www.npmjs.org/package/http-live-server)
+[![npm module downloads per month](http://img.shields.io/npm/dm/live-server.svg)](https://www.npmjs.org/package/http-live-server)
 
 Fork from Live Server
 
@@ -29,11 +28,11 @@ You need node.js and npm. You should probably install this globally.
 
 **Npm way**
 
-	npm install -g live-server
+	npm install -g http-live-server
 
 **Manual way**
 
-	git clone https://github.com/tapio/live-server
+	git clone https://github.com/JJJYY/live-server
 	cd live-server
 	npm install # Local dependencies if you want to hack
 	npm install -g # Install globally
