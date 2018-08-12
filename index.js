@@ -11,6 +11,7 @@ var fs = require('fs'),
 	open = require('opn'),
 	es = require("event-stream"),
 	os = require('os'),
+	httpProxy = require('http-proxy-middleware'),
 	chokidar = require('chokidar');
 require('colors');
 
@@ -216,10 +217,11 @@ LiveServer.start = function(options) {
 			console.log('Mapping %s to "%s"', mountRule[0], mountPath);
 	});
 	proxy.forEach(function(proxyRule) {
-		var proxyOpts = url.parse(proxyRule[1]);
-		proxyOpts.via = true;
-		proxyOpts.preserveHost = true;
-		app.use(proxyRule[0], require('proxy-middleware')(proxyOpts));
+		var proxyHref = url.parse(proxyRule[1]).href;
+		app.use(proxyRule[0], httpProxy({
+			target: proxyHref,
+			changeOrigin: true
+		}));
 		if (LiveServer.logLevel >= 1)
 			console.log('Mapping %s to "%s"', proxyRule[0], proxyRule[1]);
 	});

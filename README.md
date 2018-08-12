@@ -2,6 +2,11 @@
 [![npm module downloads per month](http://img.shields.io/npm/dm/live-server.svg)](https://www.npmjs.org/package/live-server)
 [![build status](https://travis-ci.org/tapio/live-server.svg)](https://travis-ci.org/tapio/live-server)
 
+Fork from Live Server
+
+change proxy-middleware to http-proxy-middleware, and default changeOrigin is true
+===========
+
 Live Server
 ===========
 
