@@ -1,10 +1,15 @@
-[![view on npm](http://img.shields.io/npm/v/http-live-server.svg)](https://www.npmjs.org/package/http-live-server)
-[![npm module downloads per month](http://img.shields.io/npm/dm/http-live-server.svg)](https://www.npmjs.org/package/http-live-server)
+[![view on npm](http://img.shields.io/npm/v/http-live-server2.svg)](https://www.npmjs.org/package/http-live-server2)
+[![npm module downloads per month](http://img.shields.io/npm/dm/http-live-server2.svg)](https://www.npmjs.org/package/http-live-server2)
 
 Fork from Live Server
 
-change proxy-middleware to http-proxy-middleware, and default changeOrigin is true
+change proxy-middleware to http-proxy-middleware, and default changeOrigin is false, and support cli param --change-origin
 ===========
+
+	npx http-live-server2 --proxy=/proxy/api1:http://127.0.0.1:3001 --proxy=/proxy/api2:http://127.0.0.1:3002 --change-origin
+
+/proxy/api1/aaa/ => http://127.0.0.1:3001/aaa/
+/proxy/api2/bbb/ => http://127.0.0.1:3002/bbb/
 
 Live Server
 ===========
@@ -28,12 +33,12 @@ You need node.js and npm. You should probably install this globally.
 
 **Npm way**
 
-	npm install -g http-live-server
+	npm install -g http-live-server2
 
 **Manual way**
 
-	git clone https://github.com/JJJYY/live-server
-	cd live-server
+	git clone https://github.com/stywell/http-live-server2
+	cd http-live-server2
 	npm install # Local dependencies if you want to hack
 	npm install -g # Install globally
 
@@ -68,6 +73,7 @@ Command line parameters:
 * `--https=PATH` - PATH to a HTTPS configuration module
 * `--https-module=MODULE_NAME` - Custom HTTPS module (e.g. `spdy`)
 * `--proxy=ROUTE:URL` - proxy all requests for ROUTE to URL
+* `--change-origin` - set changeOrigin is true, default: false
 * `--help | -h` - display terse usage hint and exit
 * `--version | -v` - display version and exit
 
@@ -80,7 +86,7 @@ Usage from node
 ---------------
 
 ```javascript
-var liveServer = require("live-server");
+var liveServer = require("http-live-server2");
 
 var params = {
 	port: 8181, // Set the server port. Defaults to 8080.

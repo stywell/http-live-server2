@@ -142,6 +142,10 @@ for (var i = process.argv.length - 1; i >= 2; --i) {
 		opts.proxy.push([ match[1], match[2] ]);
 		process.argv.splice(i, 1);
 	}
+	else if (arg === "--change-origin") {
+		opts.changeOrigin = true;
+		process.argv.splice(i, 1);
+	}
 	else if (arg.indexOf("--middleware=") > -1) {
 		opts.middleware.push(arg.substring(13));
 		process.argv.splice(i, 1);

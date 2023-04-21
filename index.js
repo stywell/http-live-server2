@@ -149,6 +149,7 @@ LiveServer.start = function(options) {
 	var cors = options.cors || false;
 	var https = options.https || null;
 	var proxy = options.proxy || [];
+	var changeOrigin = options.changeOrigin || false;
 	var middleware = options.middleware || [];
 	var noCssInject = options.noCssInject;
 	var httpsModule = options.httpsModule;
@@ -217,10 +218,14 @@ LiveServer.start = function(options) {
 			console.log('Mapping %s to "%s"', mountRule[0], mountPath);
 	});
 	proxy.forEach(function(proxyRule) {
-		var proxyHref = url.parse(proxyRule[1]).href;
+		var targetHref = proxyRule[1];
+		var originPath = proxyRule[0];
+		var pathRewrite = {};
+			pathRewrite[originPath] = '';
 		app.use(proxyRule[0], httpProxy({
-			target: proxyHref,
-			changeOrigin: true
+			target: targetHref,
+			changeOrigin: changeOrigin,
+			pathRewrite: pathRewrite
 		}));
 		if (LiveServer.logLevel >= 1)
 			console.log('Mapping %s to "%s"', proxyRule[0], proxyRule[1]);
